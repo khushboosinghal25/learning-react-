@@ -4,11 +4,20 @@ import { useState , useCallback , useRef , useEffect } from 'react'
 
 function App() {
   const [length , setLength] = useState(8);
-  const [char , setchar] = useState(false);
-  const [num , setnum] = useState(false);
-  const [Password,setPassword] = useState("");
-  const passwordGenerator = useCallback(fn , [length , num , char , setPassword])
-
+  const [charAllowed , setcharAllowed] = useState(false);
+  const [numberAllowed , setnumberAllowed] = useState(false);
+  const [password,setPassword] = useState("");
+  const passwordGenerator = useCallback(()=>{
+    let pass = "";
+    let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    if(numberAllowed) str+="0123456789"
+    if(charAllowed) str+="!@#$%^&*(){}'[];,.<>?/~`";
+    for(int i=0;i<length;i++)
+    {
+      let char = Math.random() * str.length()
+    }
+  })
+  
   
 
   return (
